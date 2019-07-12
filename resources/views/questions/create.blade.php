@@ -36,7 +36,12 @@
 							
 								<label for="question-title"> Question Title </label>
 
-								<input type="text" name="title" id="question-title" class="form-control {{ $errors->has( 'title' ) ? 'is-invalid' : '' }}">
+								<input 
+								type="text" 
+								name="title" 
+								id="question-title" 
+								class="form-control {{ $errors->has( 'title' ) ? 'is-invalid' : '' }}"
+								value="{{ old( 'title' ) }}">
 
 								@if( $errors->has( 'title' ) )
 
@@ -54,7 +59,17 @@
 							
 								<label for="question-body"> Explain Your Question </label>
 
-								<textarea class="form-control {{ $errors->has( 'body' ) ? 'is-invalid' : '' }}" name="body" id="question-body" cols="30" rows="10"> Type Here... </textarea>
+								<textarea 
+								class="form-control {{ $errors->has( 'body' ) ? 'is-invalid' : '' }}" 
+								name="body" 
+								id="question-body" 
+								placeholder="Type Here..."
+								cols="30" 
+								rows="10">
+
+									{{ old( 'body' ) }}
+
+								</textarea>
 
 								@if( $errors->has( 'body' ) )
 
