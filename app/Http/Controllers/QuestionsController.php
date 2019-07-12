@@ -40,7 +40,10 @@ class QuestionsController extends Controller
      */
     public function store( AskQuestionRequest $request)
     {
-        dd( 'store' );
+		$request->user()->questions()->create( $request->only( 'title', 'body' ) );
+		
+		// return redirect( '/questions' ); OR:
+		return redirect()->route( 'questions.index' )->with( 'success', 'Your question is submitted.' );
     }
 
     /**
